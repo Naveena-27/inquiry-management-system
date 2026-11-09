@@ -45,13 +45,3 @@ End-to-end browser tests and truly simultaneous concurrent updates are not autom
 2. Separate database for automated tests.
 3. Login rate limiting.
 4. Pagination and inquiry assignment.
-
-## Use of AI
-I used Claude and ChatGPT as development assistants during this project, mainly for suggestions on individual components and logic, debugging, code review, and improving tests.
-I reviewed the suggested code before using it. I checked how it worked, whether it matched the project requirements, and whether it fit with the rest of the application. I modified or rejected suggestions when necessary and tested the final implementation.
-
-- **Accepted:** I accepted useful suggestions for improving validation and API error handling. I also added more backend tests for authentication, ownership access, stale updates, invalid IDs, and invalid status changes.
-- **Changed:** I reviewed the suggested duplicate and stale-data handling and adjusted them to suit the project. I used database-level duplicate protection and version-based optimistic locking. I also found that test inquiries were staying in the database after the tests, so I changed the tests to clean them up automatically.
-- **Rejected:** When dependency vulnerabilities were found, `npm audit fix --force` was suggested. I did not use it because it could cause breaking changes. Instead, I updated the affected packages carefully, fixed the Vite and plugin compatibility issue, and checked everything again using tests and a production build.
-
-Finally, I reviewed the project file by file, including the database schema, API routes, validation, frontend components, and tests. AI helped me with coding, reviewing, debugging, and testing, but I reviewed the suggestions and made the final decisions about what to keep or change.
